@@ -3,6 +3,7 @@ package com.interviewpreparationkit.app;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class AbsoluteDifference {
@@ -17,6 +18,16 @@ public class AbsoluteDifference {
                     diff = Math.abs((arr[i] - arr[j]));   
         return diff; 
 
+    }
+    
+    static int minimumAbsoluteDifferenceImprove(int[] arr) {
+        Arrays.sort(arr);
+        int min = Math.abs(arr[0] - arr [1]);
+        for(int i = 1 ; i < arr.length-1 ; i++){
+            if(Math.abs(arr[i] - arr[i+1]) < min)
+            min = Math.abs(arr[i] - arr[i+1]);
+        }
+    return min;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
